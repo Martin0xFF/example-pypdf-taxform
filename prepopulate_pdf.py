@@ -11,7 +11,9 @@ To apply this to your usecase, you will need to:
 import pypdf as p
 
 
-def create_filled_pdf(template_pdf, name_value, output_path="output/filled.pdf", print_fields=False):
+def create_filled_pdf(
+    template_pdf, name_value, output_path="output/filled.pdf", print_fields=False
+):
     """
     Args:
       name_value: Dict[str, str], Field Name mapped to requested value.
@@ -59,35 +61,38 @@ def create_filled_pdf(template_pdf, name_value, output_path="output/filled.pdf",
 
 if __name__ == "__main__":
     TEMPLATE_FILE = "fillable/t2200-fill-23e.pdf"
-    EXAMPLE_ENTRIES = [{
-        "Last_Name_Fill[0]": "Mario",
-        "First_Name_Fill[0]": "Mario",
-        "Tax_Year_Fill[0]": "1969",
-        "Business_Address_Fill[0]": "245 Peach Crescent, Mushroom Kingdom",
-        "Job_Title_Fill[0]": "Plumber, Head of National Defence",
-        "FromDate[0]": "19810101",
-        "ToDate[0]": "20231231",
+    EXAMPLE_ENTRIES = [
+        {
+            "Last_Name_Fill[0]": "Mario",
+            "First_Name_Fill[0]": "Mario",
+            "Tax_Year_Fill[0]": "1969",
+            "Business_Address_Fill[0]": "245 Peach Crescent, Mushroom Kingdom",
+            "Job_Title_Fill[0]": "Plumber, Head of National Defence",
+            "FromDate[0]": "19810101",
+            "ToDate[0]": "20231231",
         },
         {
-        "Last_Name_Fill[0]": "Luigi",
-        "First_Name_Fill[0]": "Mario",
-        "Tax_Year_Fill[0]": "1969",
-        "Business_Address_Fill[0]": "245 Peach Crescent, Mushroom Kingdom",
-        "Job_Title_Fill[0]": "Plumber, Deputy of National Defence, Homeowner",
-        "FromDate[0]": "19830101",
-        "ToDate[0]": "20231231",
+            "Last_Name_Fill[0]": "Luigi",
+            "First_Name_Fill[0]": "Mario",
+            "Tax_Year_Fill[0]": "1969",
+            "Business_Address_Fill[0]": "245 Peach Crescent, Mushroom Kingdom",
+            "Job_Title_Fill[0]": "Plumber, Deputy of National Defence, Homeowner",
+            "FromDate[0]": "19830101",
+            "ToDate[0]": "20231231",
         },
         {
-        "Last_Name_Fill[0]": "Peach",
-        "First_Name_Fill[0]": "Princess",
-        "Tax_Year_Fill[0]": "1969",
-        "Business_Address_Fill[0]": "245 Peach Crescent, Mushroom Kingdom",
-        "Job_Title_Fill[0]": "Matriarch, Passenger",
-        "FromDate[0]": "19850101",
-        "ToDate[0]": "20231231",
+            "Last_Name_Fill[0]": "Peach",
+            "First_Name_Fill[0]": "Princess",
+            "Tax_Year_Fill[0]": "1969",
+            "Business_Address_Fill[0]": "245 Peach Crescent, Mushroom Kingdom",
+            "Job_Title_Fill[0]": "Matriarch, Passenger",
+            "FromDate[0]": "19850101",
+            "ToDate[0]": "20231231",
         },
     ]
 
     for entry in EXAMPLE_ENTRIES:
         file_name = "_".join(list(entry.values())[:2]).lower()
-        create_filled_pdf(TEMPLATE_FILE, entry, f"output/{file_name}.pdf", print_fields=False)
+        create_filled_pdf(
+            TEMPLATE_FILE, entry, f"output/{file_name}.pdf", print_fields=False
+        )
